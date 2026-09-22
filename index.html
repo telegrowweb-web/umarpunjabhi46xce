@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Umar Punjabi – Free Telegram</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
+      padding: 20px 22px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ecfdf5;
+      color: #059669;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 5px 12px;
+      border-radius: 999px;
+      text-transform: uppercase;
+    }
+
+    .badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+    }
+
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff;
+    }
+
+    .avatar-wrap::after {
+      content: "✓";
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 20px;
+      height: 20px;
+      background: #3b82f6;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #fff;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.25;
+      color: #0f172a;
+    }
+
+    h1 span {
+      color: #2563eb;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #64748b;
+      text-align: center;
+      line-height: 1.4;
+      max-width: 320px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .stat {
+      flex: 1;
+      background: #f1f5f9;
+      border-radius: 12px;
+      padding: 10px 6px;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .stat span {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: linear-gradient(90deg, #2563eb, #3b82f6);
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
+    }
+
+    .cta svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .free-note {
+      font-size: 12px;
+      color: #059669;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .features {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 8px 12px;
+    }
+
+    .feature-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .feature:nth-child(1) .feature-icon { background: #dbeafe; }
+    .feature:nth-child(2) .feature-icon { background: #fce7f3; }
+    .feature:nth-child(3) .feature-icon { background: #fef3c7; }
+
+    .feature-text strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .feature-text span {
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .feature-check {
+      margin-left: auto;
+      color: #10b981;
+      font-size: 14px;
+    }
+
+    .footer {
+      font-size: 10px;
+      color: #94a3b8;
+      text-align: center;
+      line-height: 1.4;
+      max-width: 340px;
+    }
+
+    .footer a {
+      color: #64748b;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="badge">Channel Live & Active</div>
+
+    <div class="avatar-wrap">
+      <img src="https://i.ibb.co/YB3FjwBK/ummmaswr.jpg" alt="Umar Punjabi" />
+    </div>
+
+    <h1>The Alpha trader university with<br /><span>Umar Punjabi</span></h1>
+    <p class="subtitle">Free daily analysis, price action setups & risk management — for beginners to advanced traders.</p>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>30K+</strong>
+        <span>Members</span>
+      </div>
+      <div class="stat">
+        <strong>Daily</strong>
+        <span>Signals</span>
+      </div>
+      <div class="stat">
+        <strong>FREE</strong>
+        <span>Always</span>
+      </div>
+    </div>
+
+    <a class="cta" href="https://t.me/+LfE0yya9EmQxYjA1" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+      Join Free Telegram Now
+    </a>
+
+    <div class="free-note">✓ 100% Free — No card required</div>
+
+   
+
+    <p class="footer">
+      For educational purposes only. Trading involves risk.<br />
+      Ads by <a href="https://t.me/+TRlJl628l-FkMWE9" target="_blank">@Nexgroww_agency</a>
+    </p>
+  </div>
+</body>
+ 
+</html>
